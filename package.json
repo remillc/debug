@@ -1,5 +1,5 @@
 {
-  "name": "debug",
+  "name": "debug-enhanced",
   "version": "1.0.0",
   "description": "A small wrapper around 'debug' to ease loging.",
   "main": "index.js",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/remillc/debug#readme",
   "dependencies": {
+    "debug": "^2.2.0",
     "moment": "^2.10.6"
   }
 }
