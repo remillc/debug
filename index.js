@@ -3,10 +3,20 @@
 var moment = require('moment'),
 	debug = require('debug');
 
+function useColors() {
+	// is webkit? http://stackoverflow.com/a/16459606/376773
+	return ('WebkitAppearance' in document.documentElement.style) ||
+		// is firebug? http://stackoverflow.com/a/398120/376773
+		(window.console && (console.firebug || (console.exception && console.table))) ||
+		// is firefox >= v31?
+		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+		(navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31);
+}
+
 debug.formatArgs = function formatArgs() {
 	var args = Array.prototype.slice.call(arguments);
 
-	var useColors = this.useColors;
+	var useColors = useColors();
 
 	args[0] = (useColors ? '%c' : '') + moment().format('YYYY-MM-DD HH:mm:ss') + (useColors ? ' %c' : ' ') + '[' + this.namespace + ']' + (useColors ? ' %c' : ' ') + args[0];
 
