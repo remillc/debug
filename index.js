@@ -56,11 +56,13 @@ module.exports = function(namespace, level) {
 	};
 
 	logger.start = function(tag) {
+		tag = tag || '';
 		tagStack[tag] = now();
 	};
 
 	logger.end = function(tag) {
 		var end = now();
+		tag = tag || '';
 		if (typeof tagStack[tag] !== 'undefined') {
 			return (end - tagStack[tag]).toFixed(this.timePrecision);
 		}
