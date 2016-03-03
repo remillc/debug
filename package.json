@@ -1,27 +1,28 @@
 {
-  "name": "debug-enhanced",
-  "version": "1.0.0",
-  "description": "A small wrapper around 'debug' to ease loging.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/remillc/debug.git"
-  },
-  "keywords": [
-    "debug",
-    "log"
-  ],
-  "author": "Christian Rémillard",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/remillc/debug/issues"
-  },
-  "homepage": "https://github.com/remillc/debug#readme",
-  "dependencies": {
-    "debug": "^2.2.0",
-    "moment": "^2.10.6"
-  }
+	"name": "debug-enhanced",
+	"version": "1.1.0",
+	"description": "A small wrapper around 'debug' to ease loging.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/remillc/debug.git"
+	},
+	"keywords": [
+		"debug",
+		"log"
+	],
+	"author": "Christian Rémillard",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/remillc/debug/issues"
+	},
+	"homepage": "https://github.com/remillc/debug#readme",
+	"dependencies": {
+		"debug": "^2.2.0",
+		"moment": "^2.10.6",
+		"performance-now": "^0.2.0"
+	}
 }

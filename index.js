@@ -1,7 +1,8 @@
 'use strict';
 
 var moment = require('moment'),
-	debug = require('debug');
+	debug = require('debug'),
+	now = require('performance-now');
 
 debug.formatArgs = function formatArgs() {
 	var args = Array.prototype.slice.call(arguments);
@@ -49,6 +50,8 @@ module.exports = function(namespace, level) {
 	logger.level = function(level) {
 		return console[level] && (this.log = console[level].bind(console));
 	};
+
+	logger.now = now;
 
 	return logger;
 };
