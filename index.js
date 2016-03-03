@@ -43,15 +43,28 @@ module.exports = function(namespace, level) {
 	namespace = namespace || '*';
 	level = level || 'log';
 
-	var logger = debug(namespace);
+	var logger = debug(namespace),
+		tagStack = {};
 	//logger.useColors = true;
+
+	logger.timePrecision = 3;
+
 	logger.log = console[level].bind(console);
 
 	logger.level = function(level) {
 		return console[level] && (this.log = console[level].bind(console));
 	};
 
-	logger.now = now;
+	logger.start = function(tag) {
+		tagStack[tag] = now();
+	};
+
+	logger.end = function(tag) {
+		var end = now();
+		if (typeof tagStack[tag] !== 'undefined') {
+			return (end - tagStack[tag]).toFixed(this.timePrecision);
+		}
+	};
 
 	return logger;
 };
